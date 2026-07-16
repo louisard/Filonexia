@@ -8,7 +8,7 @@ let currentLang = localStorage.getItem('filonexia_lang') || 'fr';
 async function loadTranslations(lang) {
     if (!locales[lang]) {
         try {
-            const response = await fetch(`locales/${lang}.json?v=6`);
+            const response = await fetch(`locales/${lang}.json?v=7`);
             locales[lang] = await response.json();
         } catch (error) {
             console.error('Error loading translations:', error);
