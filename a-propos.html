@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FILONEXIA - Qui sommes-nous ?</title>`n    <link rel="icon" href="logo.jpeg" type="image/jpeg">
-    <link rel="stylesheet" href="css/style.css?v=11">
+    <link rel="stylesheet" href="css/style.css?v=13">
 </head>
 <body>
 
@@ -95,18 +95,27 @@
             <div class="content-section" style="margin-top: 3rem; background: transparent;">
                 <h2 data-i18n="global_partners_title" style="text-align: center; margin-bottom: 1rem;">Nos Partenaires</h2>
                 <p data-i18n="global_partners_text" style="text-align: center; margin-bottom: 2rem;">Nous remercions chaleureusement nos partenaires qui nous soutiennent au quotidien dans nos actions de solidarité :</p>
-                <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-weight: bold; font-size: 1.1rem; color: var(--primary);">
-                    <span data-i18n="partner_franprix">Franprix</span>
-                    <span style="color: var(--text-light);">•</span>
-                    <span data-i18n="partner_carrefour">Carrefour Market</span>
-                    <span style="color: var(--text-light);">•</span>
-                    <span data-i18n="partner_phenix">Phenix</span>
-                    <span style="color: var(--text-light);">•</span>
-                    <span data-i18n="partner_kyria">Eglise Evangélique Mission KYRIA</span>
-                    <span style="color: var(--text-light);">•</span>
-                    <span data-i18n="partner_adoma">ADOMA</span>
-                    <span style="color: var(--text-light);">•</span>
-                    <span data-i18n="partner_espoir">Espoir pour une vie</span>
+                <div class="marquee-wrapper">
+                    <div class="marquee-container">
+                        <!-- Premiere boucle -->
+                        <div class="marquee-content">
+                            <img src="images/partenaires/franprix.webp" alt="Franprix" class="partner-logo">
+                            <img src="images/partenaires/carrefour.webp" alt="Carrefour Market" class="partner-logo">
+                            <img src="images/partenaires/phenix.webp" alt="Phenix" class="partner-logo">
+                            <img src="images/partenaires/kyria.jfif" alt="Eglise Evangélique Mission KYRIA" class="partner-logo">
+                            <img src="images/partenaires/adoma.png" alt="ADOMA" class="partner-logo">
+                            <div class="partner-fallback" data-i18n="partner_espoir">Espoir pour une vie</div>
+                        </div>
+                        <!-- Deuxieme boucle (pour l'effet infini) -->
+                        <div class="marquee-content">
+                            <img src="images/partenaires/franprix.webp" alt="Franprix" class="partner-logo">
+                            <img src="images/partenaires/carrefour.webp" alt="Carrefour Market" class="partner-logo">
+                            <img src="images/partenaires/phenix.webp" alt="Phenix" class="partner-logo">
+                            <img src="images/partenaires/kyria.jfif" alt="Eglise Evangélique Mission KYRIA" class="partner-logo">
+                            <img src="images/partenaires/adoma.png" alt="ADOMA" class="partner-logo">
+                            <div class="partner-fallback" data-i18n="partner_espoir">Espoir pour une vie</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
