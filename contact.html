@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FILONEXIA - Contact</title>`n    <link rel="icon" href="logo.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="css/style.css?v=6">
+    <style>
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-body);
+        }
+        .contact-info {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.jpeg" alt="Filonexia Logo">
+            </a>
+            
+            <button class="menu-toggle">☰</button>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+                    <li><a href="a-propos.html" data-i18n="nav_about">Qui sommes-nous ?</a></li>
+                    <li><a href="actions.html" data-i18n="nav_actions">Nos actions</a></li>
+                    <li><a href="nous-rejoindre.html" data-i18n="nav_join">Nous Rejoindre</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                    <li><a href="don.html" class="btn btn-primary" data-i18n="btn_donate">Faire un don</a></li>
+                    
+                    <li class="lang-switcher">
+                        <button class="lang-btn active" data-lang="fr">FR</button>
+                        <span>|</span>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </li>
+                    <li>
+                        <select class="theme-switcher">
+                            <option value="system">Système</option>
+                            <option value="light">Jour</option>
+                            <option value="dark">Nuit</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1 data-i18n="contact_title">Contactez-nous</h1>
+        </section>
+
+        <section class="container">
+            
+            <div class="grid-3" style="grid-template-columns: 1fr 2fr;">
+                <div class="contact-info">
+                    <h3 data-i18n="contact_title" style="margin-bottom: 1rem;">Contact</h3>
+                    <p><strong><span data-i18n="contact_email">Email : filonexiaactions@gmail.com</span></strong></p>
+                    <p><strong><span data-i18n="contact_phone">Téléphone : +33 6 36 97 29 30</span></strong></p>
+                    <p><strong><span data-i18n="contact_address">Adresse : 25 Place Louis loucheur, 94500 Champigny-sur-Marne</span></strong></p>
+                </div>
+
+                <div class="content-section">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label>Nom / Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="contact_title">Contactez-nous</button>
+                    </form>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <div style="margin-bottom: 1rem; color: #a0aec0;">
+            <p style="font-size: 0.9rem;" data-i18n="contact_legal_1">Membre de la Fédération des Associations de France</p>
+            <p style="font-size: 0.9rem;" data-i18n="contact_legal_2">N° Récépissé : W942012258</p>
+            <p style="font-size: 0.9rem;" data-i18n="contact_legal_3">N° SIREN : 939756045</p>
+        </div>
+        <p data-i18n="footer_text">© 2026 Filonexia Actions - Tous droits réservés.</p>
+    </footer>
+
+    <script src="js/main.js?v=6"></script>
+    <script src="js/i18n.js?v=6"></script>
+</body>
+</html>
+
+

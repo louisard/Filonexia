@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FILONEXIA - Accueil</title>
+                    <link rel="icon" href="logo.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.jpeg" alt="Filonexia Logo">
+            </a>
+            
+            <button class="menu-toggle">☰</button>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+                    <li><a href="a-propos.html" data-i18n="nav_about">Qui sommes-nous ?</a></li>
+                    <li><a href="actions.html" data-i18n="nav_actions">Nos actions</a></li>
+                    <li><a href="nous-rejoindre.html" data-i18n="nav_join">Nous Rejoindre</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                    <li><a href="don.html" class="btn btn-primary" data-i18n="btn_donate">Faire un don</a></li>
+                    
+                    <li class="lang-switcher">
+                        <button class="lang-btn active" data-lang="fr">FR</button>
+                        <span>|</span>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </li>
+                    <li>
+                        <select class="theme-switcher">
+                            <option value="system">Système</option>
+                            <option value="light">Jour</option>
+                            <option value="dark">Nuit</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 data-i18n="hero_title">Impact du développement pour tous</h1>
+            <p data-i18n="hero_subtitle" style="margin-bottom: 1rem;">Une association sans but lucratif de la loi 1901 qui vient en aide à plusieurs institutions et populations dans le besoin.</p>
+            <p style="font-style: italic; font-size: 1.2rem; font-weight: bold; margin-bottom: 2rem;" data-i18n="motto">"Agir aujourd'hui en rendant l'impossible accessible pour un demain meilleur."</p>
+            <a href="actions.html" class="btn btn-secondary" data-i18n="hero_cta">Découvrir nos missions</a>
+        </section>
+
+        <section class="container text-center">
+            <h2 data-i18n="about_title">Qui sommes-nous ?</h2>
+            <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;" data-i18n="about_intro">De son nom « Filonexia Actions », nous apportons notre hospitalité...</p>
+            <br>
+            <a href="a-propos.html" class="btn btn-primary" style="margin-top: 1rem;" data-i18n="nav_about">En savoir plus sur nous</a>
+        </section>
+
+        <section class="container text-center" style="background: var(--bg-light); border-radius: 20px; padding-top: 2rem; padding-bottom: 4rem;">
+            <h2 data-i18n="actions_title" style="margin-bottom: 2rem;">Nos actions sur le terrain</h2>
+            
+            <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 0;">
+                <div class="card">
+                    <div class="card-icon">🌾</div>
+                    <h3 data-i18n="action_famine_title">Lutte contre la faim</h3>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <h3 data-i18n="action_eco_title">Développement économique</h3>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💧</div>
+                    <h3 data-i18n="action_water_title">Accès à l'eau potable</h3>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <h3 data-i18n="action_tech_title">Accès à la technologie</h3>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📦</div>
+                    <h3 data-i18n="action_hygiene_title">Colis alimentaires et kits d'hygiène</h3>
+                </div>
+            </div>
+            
+            <a href="actions.html" class="btn btn-secondary" style="margin-top: 3rem;" data-i18n="hero_cta">Découvrir le détail de nos actions</a>
+        </section>
+    </main>
+
+    <footer>
+        <div style="margin-bottom: 1rem; color: #a0aec0;">
+            <p style="font-size: 0.9rem;" data-i18n="contact_legal_1">Membre de la Fédération des Associations de France</p>
+            <p style="font-size: 0.9rem;" data-i18n="contact_legal_2">N° Récépissé : W942012258</p>
+            <p style="font-size: 0.9rem;" data-i18n="contact_legal_3">N° SIREN : 939756045</p>
+        </div>
+        <p data-i18n="footer_text">© 2026 Filonexia Actions - Tous droits réservés.</p>
+    </footer>
+
+    <script src="js/main.js?v=6"></script>
+    <script src="js/i18n.js?v=6"></script>
+</body>
+</html>
+
+
