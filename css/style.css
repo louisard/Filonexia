@@ -410,3 +410,23 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Flag switcher */
+.lang-flag { width: 24px; height: 18px; object-fit: contain; border-radius: 2px; vertical-align: middle; transition: filter 0.3s ease; }
+.lang-btn:not(.active) .lang-flag { filter: grayscale(100%) opacity(50%); }
+.lang-btn.active .lang-flag, .lang-btn:hover .lang-flag { filter: grayscale(0%) opacity(100%); }
+.lang-switcher { display: flex; align-items: center; gap: 0.5rem; }
+
+
+/* Partner Marquee Carousel */
+.marquee-wrapper { overflow: hidden; padding: 2rem 0; margin: 3rem 0; background: var(--bg-alt); border-radius: var(--radius-card); box-shadow: inset var(--shadow-soft); position: relative; border: 2px solid var(--border-color); }
+.marquee-container { display: flex; width: fit-content; animation: marquee 25s linear infinite; }
+.marquee-container:hover { animation-play-state: paused; }
+.marquee-content { display: flex; align-items: center; gap: 4rem; padding-right: 4rem; }
+.partner-logo { height: 100px; object-fit: contain; transition: transform 0.3s ease; }
+.partner-logo:hover { transform: scale(1.08); }
+.partner-fallback { font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--primary-color); border: 3px solid var(--primary-color); padding: 0.8rem 1.5rem; border-radius: var(--radius-btn); white-space: nowrap; transition: all 0.3s ease; }
+.partner-fallback:hover { background-color: var(--primary-color); color: var(--white); transform: scale(1.05); }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
