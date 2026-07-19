@@ -417,7 +417,7 @@ footer p {
     padding-right: 4rem; /* match gap */
 }
 .partner-logo {
-    height: 70px;
+    height: 100px;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
@@ -444,3 +444,11 @@ footer p {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
+
+/* Flag switcher */
+.lang-flag { width: 24px; height: 18px; object-fit: contain; border-radius: 2px; vertical-align: middle; transition: filter 0.3s ease; }
+.lang-btn:not(.active) .lang-flag { filter: grayscale(100%) opacity(50%); }
+.lang-btn.active .lang-flag, .lang-btn:hover .lang-flag { filter: grayscale(0%) opacity(100%); }
+.lang-switcher { display: flex; align-items: center; gap: 0.5rem; }
+
