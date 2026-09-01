@@ -1,3 +1,41 @@
+// --- ANTI-DARKENING SHIELD ---
+(function initAntiDarkShield() {
+    const forceDarkTheme = () => {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    };
+
+    // 1. Sniper (MutationObserver)
+    const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.tagName === 'STYLE' || node.tagName === 'LINK') {
+                    const text = (node.textContent || node.href || node.className || node.id || '').toLowerCase();
+                    if (text.includes('darkreader') || text.includes('night-eye') || text.includes('dark-mode') || text.includes('dark-theme') || text.includes('darkmode')) {
+                        node.remove();
+                        forceDarkTheme();
+                    }
+                }
+            }
+        }
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+
+    // 2. Honeypot
+    document.addEventListener('DOMContentLoaded', () => {
+        const honeypot = document.createElement('div');
+        honeypot.style.cssText = 'width: 1px; height: 1px; position: absolute; opacity: 0; background-color: rgb(255, 255, 255); pointer-events: none; z-index: -1; left: -9999px;';
+        document.body.appendChild(honeypot);
+
+        setTimeout(() => {
+            const bg = window.getComputedStyle(honeypot).backgroundColor;
+            if (bg !== 'rgb(255, 255, 255)' && bg !== 'rgba(0, 0, 0, 0)') {
+                forceDarkTheme();
+            }
+        }, 500);
+    });
+})();
+// ------------------------------
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
