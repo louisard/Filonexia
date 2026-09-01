@@ -62,6 +62,9 @@ function applyTranslations(translations, lang) {
     });
     document.documentElement.lang = lang;
     
+    // Révéler la page (anti-flash de traduction)
+    document.documentElement.style.visibility = 'visible';
+    
     // Mettre à jour l'état des drapeaux
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);

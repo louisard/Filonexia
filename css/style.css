@@ -57,9 +57,13 @@ header {
     margin: 0 auto;
     padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     gap: 3rem;
+}
+
+nav {
+    flex-grow: 1;
 }
 
 .logo img {
@@ -72,21 +76,40 @@ header {
     gap: 1.5rem;
     align-items: center;
     list-style: none;
+    width: 100%;
 }
 
 .nav-links a {
     font-weight: 600;
     font-size: 1rem;
+    transition: color 0.3s;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
 }
 
+.nav-links a.active-nav {
+    color: var(--primary-color);
+    position: relative;
+}
+
+.nav-links a.active-nav::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
 /* Lang Switcher */
 .lang-switcher {
     display: flex;
     gap: 0.5rem;
+    margin-left: auto;
 }
 
 .lang-btn {

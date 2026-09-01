@@ -96,9 +96,14 @@
   "donate_option_1_title": "Don en ligne (Sécurisé)",
   "donate_option_1_text": "Utilisez notre plateforme sécurisée pour faire un don par carte bancaire.",
   "donate_option_2_title": "Virement bancaire",
-  "donate_option_2_text": "Contactez-nous à filonexiaactions@gmail.com pour obtenir notre RIB.",
+  "donate_option_2_text": "Aidez-nous directement et sans aucun frais via un virement bancaire.",
   "donate_option_3_title": "Don par chèque",
   "donate_option_3_text": "Envoyez votre chèque à l'ordre de Filonexia Actions à notre adresse postale.",
   "btn_online_donate": "Accéder à la plateforme de don",
-  "footer_text": "© 2026 Filonexia Actions - Tous droits réservés."
+  "btn_reveal_rib": "Déverrouiller le RIB",
+  "btn_reveal_address": "Afficher l'adresse postale",
+  "footer_text": "© 2026 Filonexia Actions - Tous droits réservés.",
+  "form_name": "Nom",
+  "form_email": "Email",
+  "form_message": "Message"
 }

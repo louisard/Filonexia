@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FILONEXIA - Contact</title>    <link rel="icon" href="logo.jpeg" type="image/jpeg">
-    <link rel="stylesheet" href="css/style.css?v=24">
+    <link rel="stylesheet" href="css/style.css?v=29">
     <style>
         .form-group {
             margin-bottom: 1.5rem;
@@ -32,6 +32,7 @@
             margin-bottom: 0.5rem;
         }
     </style>
+<script>if (localStorage.getItem('filonexia_lang') === 'en' || new URLSearchParams(window.location.search).get('lang') === 'en') { document.documentElement.style.visibility = 'hidden'; }</script>
 </head>
 <body>
 
@@ -76,21 +77,37 @@
             <p style="font-size: 1.2rem; margin-bottom: 3rem;" data-i18n="donate_text">Chaque don compte ! Vous pouvez soutenir l'association Filonexia Actions de plusieurs manières :</p>
             
             <div class="grid-3" style="margin-top: 0;">
+                <!-- L'option de don en ligne a été retirée pour le moment -->
                 <div class="card" style="display: flex; flex-direction: column;">
-                    <div class="card-icon">💳</div>
-                    <h3 data-i18n="donate_option_1_title">Don en ligne (Sécurisé)</h3>
-                    <p data-i18n="donate_option_1_text" style="flex-grow: 1;">Utilisez notre plateforme sécurisée pour faire un don par carte bancaire.</p>
-                    <a href="#" class="btn btn-primary" style="margin-top: 1.5rem;" data-i18n="btn_online_donate">Accéder à la plateforme de don</a>
-                </div>
-                <div class="card">
                     <div class="card-icon">🏦</div>
                     <h3 data-i18n="donate_option_2_title">Virement bancaire</h3>
-                    <p data-i18n="donate_option_2_text">Contactez-nous à filonexiaactions@gmail.com pour obtenir notre RIB.</p>
+                    <p data-i18n="donate_option_2_text" style="flex-grow: 1;">Aidez-nous directement et sans aucun frais via un virement bancaire.</p>
+                    
+                    <div id="rib-container" style="margin-top: 1.5rem; text-align: left; display: none; background: #f8f9fa; padding: 1rem; border-radius: 5px; font-family: monospace; font-size: 0.9rem; word-break: break-word; color: #333; border: 1px solid #ddd;">
+                        <strong>Titulaire:</strong> FILONEXIA ACTIONS<br>
+                        <strong>Banque:</strong> CIC<br>
+                        <br>
+                        <strong>IBAN:</strong> <span id="rib-iban"></span><br>
+                        <strong>BIC:</strong> <span id="rib-bic"></span><br>
+                        <br>
+                        <em style="font-size: 0.8rem; color: #e53e3e; display: block;">Merci d'indiquer "DON FILONEXIA" dans le motif du virement.</em>
+                    </div>
+                    
+                    <button class="btn btn-secondary" id="btn-reveal-rib" style="margin-top: 1.5rem;" data-i="RlI3NiAzMDA2IDYxMDAgMTYwMCAwMjA1IDM4MzAgMTYw" data-b="Q01DSUZSUFA=">Afficher le RIB</button>
                 </div>
-                <div class="card">
+                <div class="card" style="display: flex; flex-direction: column;">
                     <div class="card-icon">✉️</div>
                     <h3 data-i18n="donate_option_3_title">Don par chèque</h3>
-                    <p data-i18n="donate_option_3_text">Envoyez votre chèque à l'ordre de Filonexia Actions à notre adresse postale.</p>
+                    <p data-i18n="donate_option_3_text" style="flex-grow: 1;">Envoyez votre chèque à l'ordre de Filonexia Actions à notre adresse postale.</p>
+                    
+                    <div id="check-container" style="margin-top: 1.5rem; text-align: left; display: none; background: #f8f9fa; padding: 1rem; border-radius: 5px; font-family: monospace; font-size: 0.9rem; word-break: break-word; color: #333; border: 1px solid #ddd;">
+                        <strong>Ordre :</strong> FILONEXIA ACTIONS<br>
+                        <br>
+                        <strong>Adresse postale :</strong><br>
+                        <span id="check-address"></span>
+                    </div>
+                    
+                    <button class="btn btn-secondary" id="btn-reveal-check" style="margin-top: 1.5rem;" data-a="MjUgUGxhY2UgTG91aXMgbG91Y2hldXIsIDk0NTAwIENoYW1waWdueS1zdXItTWFybmU=" data-i18n="btn_reveal_address">Afficher l'adresse</button>
                 </div>
             </div>
         </section>
@@ -105,8 +122,8 @@
         <p data-i18n="footer_text">© 2026 Filonexia Actions - Tous droits réservés. | <span class='version'>v1.0.0</span></p>
     </footer>
 
-    <script src="js/main.js?v=15"></script>
-    <script src="js/i18n.js?v=20"></script>
+    <script src="js/main.js?v=30"></script>
+    <script src="js/i18n.js?v=30"></script>
 </body>
 </html>
 

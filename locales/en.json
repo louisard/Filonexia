@@ -96,9 +96,14 @@
   "donate_option_1_title": "Online Donation (Secure)",
   "donate_option_1_text": "Use our secure platform to make a donation by credit card.",
   "donate_option_2_title": "Bank Transfer",
-  "donate_option_2_text": "Contact us at filonexiaactions@gmail.com to get our bank details.",
+  "donate_option_2_text": "Help us directly and without any bank fees via a bank transfer.",
   "donate_option_3_title": "Donation by Check",
   "donate_option_3_text": "Send your check payable to Filonexia Actions to our postal address.",
   "btn_online_donate": "Access the donation platform",
-  "footer_text": "© 2026 Filonexia Actions - All rights reserved."
+  "btn_reveal_rib": "Reveal Bank Details",
+  "btn_reveal_address": "Reveal Postal Address",
+  "footer_text": "© 2026 Filonexia Actions - All rights reserved.",
+  "form_name": "Name",
+  "form_email": "Email",
+  "form_message": "Message"
 }
