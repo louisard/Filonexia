@@ -191,3 +191,145 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// --- Hero Carousel Logic ---
+let slideIndex = 0;
+let slideInterval;
+
+function showSlide(n) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dots .dot');
+    
+    if (!slides.length) return;
+    
+    if (n >= slides.length) slideIndex = 0;
+    if (n < 0) slideIndex = slides.length - 1;
+    
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    slides[slideIndex].classList.add('active');
+    if (dots[slideIndex]) dots[slideIndex].classList.add('active');
+}
+
+window.moveSlide = function(n) {
+    slideIndex += n;
+    showSlide(slideIndex);
+    resetInterval();
+};
+
+window.currentSlide = function(n) {
+    slideIndex = n;
+    showSlide(slideIndex);
+    resetInterval();
+};
+
+function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(() => {
+        slideIndex++;
+        showSlide(slideIndex);
+    }, 7000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.carousel-slide');
+    if (slides.length > 0) {
+        showSlide(slideIndex);
+        resetInterval();
+    }
+
+    // Gallery Carousel Logic
+    const galleryTrack = document.getElementById('galleryTrack');
+    const galleryPrev = document.getElementById('galleryPrev');
+    const galleryNext = document.getElementById('galleryNext');
+    const galleryDotsContainer = document.getElementById('galleryDots');
+
+    if (galleryTrack) {
+        // Hide dots as they are not needed for continuous scroll
+        if (galleryDotsContainer) galleryDotsContainer.style.display = 'none';
+        
+        // Duplicate content for infinite seamless scroll
+        const originalHtml = galleryTrack.innerHTML;
+        galleryTrack.innerHTML += originalHtml;
+
+        let isHovering = false;
+        let animationId;
+
+        const scrollGallery = () => {
+            if (!isHovering) {
+                galleryTrack.scrollLeft += 1.5; // Vitesse du défilement
+                
+                // Si on a défilé la première moitié (l'original), on revient au début instantanément
+                if (galleryTrack.scrollLeft >= galleryTrack.scrollWidth / 2) {
+                    galleryTrack.scrollLeft = 0;
+                }
+            }
+            animationId = requestAnimationFrame(scrollGallery);
+        };
+
+        // Start animation
+        animationId = requestAnimationFrame(scrollGallery);
+
+        // Pause on hover or touch
+        galleryTrack.addEventListener('mouseenter', () => isHovering = true);
+        galleryTrack.addEventListener('mouseleave', () => isHovering = false);
+        galleryTrack.addEventListener('touchstart', () => isHovering = true);
+        galleryTrack.addEventListener('touchend', () => isHovering = false);
+
+        // Keep manual buttons working for quick jumps
+        if (galleryPrev) {
+            galleryPrev.addEventListener('click', () => {
+                galleryTrack.scrollLeft -= 300;
+            });
+        }
+        if (galleryNext) {
+            galleryNext.addEventListener('click', () => {
+                galleryTrack.scrollLeft += 300;
+            });
+        }
+    }
+
+    // Partners Carousel Logic
+    const partnerTrack = document.getElementById('partnerTrack');
+    const partnerPrev = document.getElementById('partnerPrev');
+    const partnerNext = document.getElementById('partnerNext');
+
+    if (partnerTrack) {
+        // Duplicate content for infinite seamless scroll
+        const originalHtml = partnerTrack.innerHTML;
+        partnerTrack.innerHTML += originalHtml;
+
+        let partnerIsHovering = false;
+        let partnerAnimationId;
+
+        const scrollPartners = () => {
+            if (!partnerIsHovering) {
+                partnerTrack.scrollLeft += 1;
+                
+                if (partnerTrack.scrollLeft >= partnerTrack.scrollWidth / 2) {
+                    partnerTrack.scrollLeft = 0;
+                }
+            }
+            partnerAnimationId = requestAnimationFrame(scrollPartners);
+        };
+
+        partnerAnimationId = requestAnimationFrame(scrollPartners);
+
+        partnerTrack.addEventListener('mouseenter', () => partnerIsHovering = true);
+        partnerTrack.addEventListener('mouseleave', () => partnerIsHovering = false);
+        partnerTrack.addEventListener('touchstart', () => partnerIsHovering = true);
+        partnerTrack.addEventListener('touchend', () => partnerIsHovering = false);
+
+        if (partnerPrev) {
+            partnerPrev.addEventListener('click', () => {
+                partnerTrack.scrollLeft -= 200;
+            });
+        }
+        if (partnerNext) {
+            partnerNext.addEventListener('click', () => {
+                partnerTrack.scrollLeft += 200;
+            });
+        }
+    }
+});
