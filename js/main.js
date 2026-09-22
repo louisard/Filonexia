@@ -39,18 +39,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+    const menuOverlay = document.getElementById('menu-overlay');
 
     if(menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
+        const toggleMenu = (shouldOpen) => {
+            const isActive = shouldOpen !== undefined ? shouldOpen : !navLinks.classList.contains('active');
+            menuToggle.classList.toggle('active', isActive);
+            navLinks.classList.toggle('active', isActive);
+            if (menuOverlay) menuOverlay.classList.toggle('active', isActive);
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        };
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
         });
         
+        if (menuOverlay) {
+            menuOverlay.addEventListener('click', () => toggleMenu(false));
+        }
+
         document.addEventListener('click', (event) => {
             const isClickInside = menuToggle.contains(event.target) || navLinks.contains(event.target);
             if (!isClickInside && navLinks.classList.contains('active')) {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
+                toggleMenu(false);
             }
         });
     }
@@ -318,8 +330,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         partnerTrack.addEventListener('mouseenter', () => partnerIsHovering = true);
         partnerTrack.addEventListener('mouseleave', () => partnerIsHovering = false);
-        partnerTrack.addEventListener('touchstart', () => partnerIsHovering = true);
-        partnerTrack.addEventListener('touchend', () => partnerIsHovering = false);
+        partnerTrack.addEventListener('touchstart', () => partnerIsHovering = true, { passive: true });
+        partnerTrack.addEventListener('touchend', () => partnerIsHovering = false, { passive: true });
+        partnerTrack.addEventListener('touchcancel', () => partnerIsHovering = false, { passive: true });
 
         if (partnerPrev) {
             partnerPrev.addEventListener('click', () => {

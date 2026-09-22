@@ -11,6 +11,7 @@
 <script>if (localStorage.getItem('filonexia_lang') === 'en' || new URLSearchParams(window.location.search).get('lang') === 'en') { document.documentElement.style.visibility = 'hidden'; }</script>
 </head>
 <body>
+    <div class="menu-overlay" id="menu-overlay"></div>
 
     <header>
         <div class="nav-container">
@@ -48,7 +49,7 @@
             <!-- Slides Container -->
             <div class="carousel-inner">
                 <!-- SLIDE 1 (Lumière) -->
-                <div class="carousel-slide active" style="background-image: url('images/Hero_lumiere.png');">
+                <div class="carousel-slide active slide-lumiere" style="background-image: url('images/Hero_lumiere.png');">
                     <div class="hero-carousel-overlay"></div>
                     <div class="hero-carousel-content container">
                         <div class="hero-carousel-text animate-fade-in-up">
@@ -67,7 +68,7 @@
                 </div>
 
                 <!-- SLIDE 2 (Denrée) -->
-                <div class="carousel-slide" style="background-image: url('images/hero_denrée.png');">
+                <div class="carousel-slide slide-denree" style="background-image: url('images/hero_denrée.png');">
                     <div class="hero-carousel-overlay"></div>
                     <div class="hero-carousel-content container">
                         <div class="hero-carousel-text animate-fade-in-up">
@@ -137,7 +138,7 @@
 
                 <!-- Card 2: Light -->
                 <div class="action-modern-card">
-                    <div class="action-card-image" style="background-image: url('images/Hero_lumiere.png');">
+                    <div class="action-card-image" style="background-image: url('Photos/installation_lumiere/1.png'); background-position: center 75%;">
                         <div class="action-badge">
                             <span class="flag-icon">🇨🇩</span> <span data-i18n="action_badge_cd">En Afrique - RDC</span>
                         </div>
@@ -185,6 +186,10 @@
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/distribution_denree/3.jpeg');"></div><p data-i18n="gal_distribution">Distribution alimentaire</p></div>
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/distribution_denree/4.jpeg');"></div><p data-i18n="gal_distribution">Distribution alimentaire</p></div>
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/distribution_denree/5.jpeg');"></div><p data-i18n="gal_distribution">Distribution alimentaire</p></div>
+                    <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/distribution_denree/6.jpeg');"></div><p data-i18n="gal_distribution">Distribution alimentaire</p></div>
+                    <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/distribution_denree/7.jpeg');"></div><p data-i18n="gal_distribution">Distribution alimentaire</p></div>
+                    <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/distribution_denree/8.jpeg');"></div><p data-i18n="gal_distribution">Distribution alimentaire</p></div>
+                    <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/distribution_denree/9.jpeg');"></div><p data-i18n="gal_distribution">Distribution alimentaire</p></div>
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/installation_lumiere/1.jpeg');"></div><p data-i18n="gal_lumiere">Éclairage solaire - Kirumba (RDC)</p></div>
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/installation_lumiere/2.jpeg');"></div><p data-i18n="gal_lumiere">Éclairage solaire - Kirumba (RDC)</p></div>
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/installation_lumiere/3.jpeg');"></div><p data-i18n="gal_lumiere">Éclairage solaire - Kirumba (RDC)</p></div>
@@ -196,6 +201,9 @@
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/recoltes_denree/6.jpeg');"></div><p data-i18n="gal_recoltes">Récolte de denrées alimentaires</p></div>
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/recoltes_denree/7.jpeg');"></div><p data-i18n="gal_recoltes">Récolte de denrées alimentaires</p></div>
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/recoltes_denree/8.jpeg');"></div><p data-i18n="gal_recoltes">Récolte de denrées alimentaires</p></div>
+                    <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/recoltes_denree/9.jpeg');"></div><p data-i18n="gal_recoltes">Récolte de denrées alimentaires</p></div>
+                    <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/recoltes_denree/10.jpeg');"></div><p data-i18n="gal_recoltes">Récolte de denrées alimentaires</p></div>
+                    <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/recoltes_denree/11.jpeg');"></div><p data-i18n="gal_recoltes">Récolte de denrées alimentaires</p></div>
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/Orphelinat/1.png');"></div><p data-i18n="gal_orphelinat">Soutien Orphelinat MAMA AFRICA JOY</p></div>
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/Orphelinat/2.png');"></div><p data-i18n="gal_orphelinat">Soutien Orphelinat MAMA AFRICA JOY</p></div>
                     <div class="gallery-item"><div class="gallery-img" style="background-image: url('Photos/Orphelinat/3.png');"></div><p data-i18n="gal_orphelinat">Soutien Orphelinat MAMA AFRICA JOY</p></div>

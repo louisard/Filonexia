@@ -1528,7 +1528,8 @@ nav {
     height: 50px;
     width: auto;
     object-fit: contain;
-    opacity: 0.5;
+    opacity: 0.7;
+    flex-shrink: 0;
     transition: opacity 0.3s;
 }
 .partner-logo:hover {
@@ -1605,15 +1606,37 @@ nav {
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 
-/* Mobile Drawer Navigation */
+/* ---------------------------
+   MOBILE OVERLAY & DRAWER NAV
+--------------------------- */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 .menu-toggle {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    width: 32px;
+    height: 22px;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1001;
+    padding: 2px;
 }
 .menu-toggle span {
     display: block;
@@ -1623,11 +1646,20 @@ nav {
     border-radius: 3px;
     transition: all 0.3s ease;
 }
+
+/* ---------------------------
+   RESPONSIVE MEDIA QUERIES
+--------------------------- */
 @media (max-width: 900px) {
+    /* Header & Nav Drawer */
+    .nav-container {
+        padding: 0.8rem 1.2rem;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
     .menu-toggle {
         display: flex;
-        z-index: 1001;
-        position: relative;
     }
     
     .logo {
@@ -1635,7 +1667,7 @@ nav {
         position: relative;
     }
     .logo img {
-        max-height: 50px !important;
+        max-height: 48px !important;
         width: auto;
     }
     
@@ -1645,30 +1677,158 @@ nav {
         top: 0;
         right: -100%;
         width: 300px;
-        max-width: 80%;
+        max-width: 85%;
         height: 100vh;
+        height: 100dvh;
         background-color: var(--white);
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        padding-top: 6rem;
-        gap: 1.5rem;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-        transition: right 0.4s ease;
+        padding: 5rem 1.5rem 2rem 1.5rem;
+        gap: 1.2rem;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.3);
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 999;
+        overflow-y: auto;
     }
     nav .nav-links.active {
         right: 0;
     }
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links a {
+        display: block;
+        padding: 0.7rem 1rem;
+        font-size: 1.1rem;
+        width: 100%;
+    }
+    .nav-links .btn {
+        margin-top: 0.5rem;
+        padding: 0.8rem 1.5rem;
+    }
+
     .menu-toggle.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
+        transform: translateY(9.5px) rotate(45deg);
     }
     .menu-toggle.active span:nth-child(2) {
         opacity: 0;
     }
     .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
+        transform: translateY(-9.5px) rotate(-45deg);
     }
+
+    /* Hero Carousel Responsive */
+    .hero-carousel,
+    .carousel-slide {
+        min-height: 85vh;
+        min-height: 85dvh;
+        align-items: flex-start !important;
+    }
+    .carousel-slide.slide-lumiere {
+        background-image: url('../images/Hero_lumiere_telephone.png') !important;
+        background-position: center bottom !important;
+        background-size: cover !important;
+    }
+    .carousel-slide.slide-denree {
+        background-image: url('../images/hero_denr%C3%A9e_telephone.png') !important;
+        background-position: center bottom !important;
+        background-size: cover !important;
+    }
+    .hero-carousel-overlay {
+        background: linear-gradient(180deg, rgba(17, 24, 39, 0.75) 0%, rgba(17, 24, 39, 0.25) 45%, rgba(17, 24, 39, 0) 80%) !important;
+    }
+    .hero-carousel-content {
+        padding: 1.8rem 0.8rem 1.5rem 0.8rem;
+        gap: 0.5rem;
+        grid-template-columns: 1fr;
+    }
+    .hero-carousel-text {
+        align-items: center;
+        text-align: center;
+    }
+    .hero-carousel-text h1 {
+        font-size: clamp(1.25rem, 4.5vw, 1.55rem);
+        text-align: center;
+        margin-bottom: 0.4rem;
+        line-height: 1.2;
+    }
+    .hero-carousel-text p {
+        font-size: 0.78rem;
+        text-align: center;
+        line-height: 1.35;
+        margin-bottom: 0.7rem;
+        max-width: 96%;
+        opacity: 0.95;
+    }
+    .hero-modern-tag {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.5rem;
+        margin-bottom: 0.4rem;
+        letter-spacing: 0.5px;
+    }
+    .hero-modern-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 0.5rem;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+    .hero-modern-buttons .btn,
+    .hero-modern-buttons .btn-outline {
+        flex: 1;
+        width: auto;
+        max-width: 170px;
+        text-align: center;
+        padding: 0.55rem 0.5rem;
+        font-size: 0.78rem;
+        white-space: nowrap;
+    }
+    .hero-carousel-right {
+        display: none !important; /* Masqué sur mobile pour éviter toute collision avec l'image de fond et les puces */
+    }
+    .carousel-dots {
+        bottom: 0.4rem;
+    }
+    .carousel-arrow {
+        display: none; /* Cache les flèches sur petit écran au profit du tactile */
+    }
+    .carousel-dots {
+        bottom: 1rem;
+    }
+
+    /* CTA Section ("Agir à nos côtés") */
+    .cta-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 0 1.2rem;
+    }
+    .cta-left {
+        text-align: center;
+        width: 100%;
+    }
+    .cta-left h2 {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+    }
+    .cta-right {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .cta-card {
+        max-width: 100%;
+        min-width: 0;
+        padding: 1.2rem 0.8rem;
+    }
+
+    /* Layout Grids */
     .page-layout, .grid-3, div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
     }
@@ -1676,12 +1836,177 @@ nav {
         font-size: 2rem !important;
     }
     .container {
-        padding: 2rem 1rem;
+        padding: 2.5rem 1.2rem;
     }
     .content-section {
-        padding: 1.5rem;
+        padding: 1.5rem 1.2rem;
     }
 }
+
+@media (max-width: 768px) {
+    /* Impact Section */
+    .impact-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+    .impact-card {
+        padding: 1.8rem 1.2rem;
+    }
+    .impact-stats-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    .impact-stat-item {
+        width: 100%;
+        padding: 0 0 1.2rem 0;
+        border-bottom: 1px solid #d1e2d6;
+    }
+    .impact-stat-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .impact-stat-item::after {
+        display: none !important; /* Supression de la ligne verticale séparatrice */
+    }
+    .impact-stat-item h4 {
+        font-size: 1.6rem;
+    }
+    .testimonial-card {
+        padding: 1.8rem 1.2rem;
+    }
+
+    /* About Section & Stats */
+    .about-modern {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 2.5rem 0;
+    }
+    .about-image {
+        min-height: 240px;
+        border-radius: 15px;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .stat-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        padding: 0 0 1.2rem 0;
+    }
+    .stat-item:last-child {
+        border-bottom: none;
+    }
+
+    /* Actions Section */
+    .actions-modern-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .global-card {
+        padding: 2rem 1.2rem;
+        min-height: 200px;
+    }
+    .global-text {
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
+        text-align: center;
+        margin-top: 1rem;
+    }
+    .global-globe {
+        width: 160px;
+        height: 160px;
+        right: -20px;
+        bottom: -20px;
+        opacity: 0.2;
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+        padding: 2.5rem 0;
+    }
+    .gallery-header {
+        padding: 0 1.2rem;
+        margin-bottom: 1.5rem;
+        align-items: flex-start;
+    }
+    .gallery-title-wrapper {
+        gap: 1rem;
+    }
+    .gallery-icon {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+    }
+    .gallery-title-text h2 {
+        font-size: 1.4rem;
+    }
+    .gallery-item {
+        flex: 0 0 calc(85% - 10px);
+        min-width: 250px;
+    }
+    .gallery-nav {
+        display: none;
+    }
+
+    /* Partners Section */
+    .partners-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding: 0 1.2rem;
+        width: 100%;
+    }
+    .partners-carousel-wrap {
+        width: 100%;
+    }
+    .partners-title {
+        white-space: normal;
+    }
+    .partner-logo {
+        height: 38px;
+        flex-shrink: 0;
+    }
+
+    /* Footer */
+    .site-footer {
+        padding: 3rem 1.2rem 1rem 1.2rem;
+    }
+    .footer-container {
+        flex-direction: column;
+        gap: 2rem;
+        padding-bottom: 2rem;
+    }
+    .footer-col {
+        min-width: 100%;
+    }
+    .border-left {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 1.5rem;
+    }
+    .footer-nav-grid {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Grille 1 colonne pour les boutons CTA sur très petits mobiles */
+    .cta-right {
+        grid-template-columns: 1fr;
+    }
+    .hero-carousel-text h1 {
+        font-size: 1.7rem;
+    }
+    .hero-carousel-text p {
+        font-size: 0.9rem;
+    }
+}
+
 html, body {
     overflow-x: hidden;
     width: 100%;
@@ -1691,3 +2016,4 @@ p, a, h1, h2, h3, h4, h5, h6, span {
     overflow-wrap: break-word;
     word-break: break-word;
 }
+
